@@ -9,9 +9,7 @@ def main():
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("close", unset_timer, 
                                   pass_chat_data=True))
-    print(1)
     dp.add_handler(CommandHandler('start', start))
-    print(2)
     dp.add_handler(ConversationHandler(
     entry_points=[CommandHandler('dice', dice)],
     states={
@@ -30,9 +28,6 @@ def main():
     },
     fallbacks=[MessageHandler(Filters.text('вернуться назад'), start_2)])
     )
-
-
-    print(3)
     updater.start_polling()
     updater.idle()
 

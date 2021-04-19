@@ -61,7 +61,6 @@ def set(update, context):
             text += ' Старая задача удалена.'
         # Присылаем сообщение о том, что всё получилось.
         update.message.reply_text(text, reply_markup=keyboard_close())
-        print(flag)
         flag = True
 
     except (IndexError, ValueError):
@@ -69,7 +68,6 @@ def set(update, context):
 
 
 def start(update, context):
-    print(4)
     update.message.reply_text('Выберите одну из двух кнопок', reply_markup=keyboard_start())
 
 
@@ -79,8 +77,6 @@ def dice(update, context):
 
 
 def cube(update, context):
-    print(6)
-    print(update.message.text)
     if update.message.text == 'кинуть один шестигранный кубик':
         number = [randint(1, 6)]
     elif update.message.text == 'кинуть 2 шестигранных кубика одновременно':
